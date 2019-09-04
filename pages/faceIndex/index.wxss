@@ -1,0 +1,92 @@
+.container {
+  height: 100vh;
+  padding-bottom: 80rpx;
+}
+
+.user-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%
+}
+
+.indexbg {
+  position: absolute;
+  width: 100%;
+  top: 0rpx;
+}
+
+.yinsinote {
+  display: inline-block;
+  color: #ffa655;
+  text-decoration: underline
+}
+
+.userinfo-avatar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 252rpx;
+  width: 252rpx;
+  border-radius: 126rpx;
+  background-color: #FFF;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+  margin-bottom: 116rpx;
+  position: absolute;
+  z-index: 2;
+  top: 40rpx;
+}
+
+.userinfo-avatar {
+  height: 240rpx;
+  width: 240rpx;
+  border-radius: 120rpx;
+}
+
+.userinfo-block {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 516rpx;
+}
+
+.userinfo-nickname {
+  font-size: 24px;
+  margin-bottom: 40rpx;
+}
+
+.userinfo-desc {
+  font-size: 18px;
+}
+
+.home-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.join-btn {
+  width: 600rpx;
+  height: 104rpx;
+  background: #ffa655;
+  color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(255, 166, 85, 0.6);
+  border-radius: 100rpx;
+  line-height: 104rpx;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40rpx;
+}
+
+.yinsi {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.yinsi-icon {
+  margin-right: 8rpx;
+  margin-top: 2rpx;
+}

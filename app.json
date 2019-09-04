@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/faceIndex/index",
+    "pages/meeting/meeting"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#FFF"
+  },
+  "sitemapLocation": "sitemap.json"
+}

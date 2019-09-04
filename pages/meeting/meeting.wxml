@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view id="main" class="content agora-bg flex-center-column">
+  <!-- <cover-view id='paperview' wx:if="{{beauty === 5}}">
+    <cover-image src='/images/paper.jpg'></cover-image>
+  </cover-view> -->
+  <view id="video-container" class="video-container n{{totalUser}}">
+    <block wx:for="{{media}}" wx:key="key">
+      <agora-player wx:if="{{item.type === 1 && !item.holding}}" id="rtc-player-{{item.uid}}" uid="{{item.uid}}" 
+      x="{{item.left}}" y="{{item.top}}"width="{{item.width}}" height="{{item.height}}" showDouble="{{media.length === 3}}"
+      debug="{{debug}}" camera="{{camera}}" url="{{item.url}}" soundMode="{{soundMode}}">
+      </agora-player>
+      <agora-pusher wx:if="{{item.type === 0 && !item.holding}}" id="rtc-pusher" 
+      x="{{item.left}}" y="{{item.top}}" width="{{item.width}}" height="{{item.height}}" 
+      url="{{item.url}}" muted="{{muted}}" beauty="{{beauty}}" debug="{{debug}}" camera="{{camera}}"
+      bindpushfailed="onPusherFailed">
+      </agora-pusher>
+    </block> 
+    <image class="video-connect-icon" 
+    style="margin-top:{{systemInfo.windowHeight/2 - 236}}px;top:{{systemInfo.windowHeight - systemInfo.windowWidth + 50}}px;" 
+    wx:if="{{camera && media.length === 3}}" src="/images/screenconnect.png" mode="aspectFit|aspectFill|widthFix" 
+    lazy-load="false" binderror="" bindload=""></image>
+    <view class="video-timer" wx:if="{{!camera || media.length === 3}}" hover-class="none" hover-stop-propagation="false">
+      {{connectTime}}
+    </view>
+  </view>
+  <view class="footer flex-center-column">
+    <view class="toolbar">
+      <!-- <button plain="true" class="mic {{muted?'muted': ''}} btn" bindtap='onMute'></button> -->
+      <view class="mic btn" hover-class="none" hover-stop-propagation="false" bindtap='onMute'>
+        <image class="" src="/images/{{muted ? 'open':'close'}}mic.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
+      </view>
+      <view class="hangup btn" hover-class="none" hover-stop-propagation="false" bindtap='onLeave'>
+        <image class="" src="/images/leave.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
+      </view>
+      <view wx:if="{{camera}}" class="camera btn" hover-class="none" hover-stop-propagation="false" bindtap='onSwitchCamera'>
+        <image class="" src="/images/{{devicePosition === 'front'? 'frontcamera':'backcamera'}}.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
+      </view>
+      <view wx:if="{{!camera}}" class="speaker btn" hover-class="none" hover-stop-propagation="false" bindtap='onSpeaker'>
+        <image class="" src="/images/{{soundMode === 'speaker' ? 'speaker' : 'ear'}}.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false"></image>
+      </view>
+      <!-- <button plain="true" hover-class="hover" class="camera btn" bindtap='onSwitchCamera'></button> -->
+      <!-- <button plain="true" class="makeup {{beauty === 5 ?'':'off'}} btn" bindtap='onMakeup'></button> -->
+      <!-- <button plain="true" hover-class="hover" class="log btn" bindtap='onSubmitLog'></button> -->
+    </view>
+  </view>
+</view>

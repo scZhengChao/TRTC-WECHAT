@@ -1,0 +1,13 @@
+<!--components/agora-pusher.wxml-->
+<view hidden="{{!camera}}" class="pusher-container" id="rtcpusher" style="top: {{y}}px; left: {{x}}px; width: {{width}}px; height: {{height}}px; position: absolute;">
+  <live-pusher wx:if="{{url!==''}}" style="height:{{height}}px; position: absolute; width: 100%; " 
+  url="{{url}}" mode="RTC" aspect="{{aspect}}" class="camera" 
+  bindstatechange="recorderStateChange" bindnetstatus="recorderNetChange" background-mute="true" 
+  muted="{{muted}}" beauty="{{beauty}}"
+  max-bitrate="200" min-bitrate="200" enable-camera="{{camera}}"
+  waiting-image="https://webdemo.agora.io/away.png" debug="{{debug}}" autopush="true" />
+  <!-- <cover-view wx-if="{{status !== 'ok' && !camera}}" class="pusher-cover-view flex-center-column">
+    <cover-image class="cover-image" src="{{userInfo.avatarUrl}}"></cover-image>
+    视频加载中
+  </cover-view> -->
+</view>

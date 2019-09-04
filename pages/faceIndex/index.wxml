@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="user-section flex-center-column">
+    <view class="userinfo-avatar-wrapper" hover-class="none" hover-stop-propagation="false">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="userinfo-block">
+      <text class="userinfo-nickname" selectable="false" space="false" decode="false">尊敬的{{userInfo.nickName}}</text>
+      <text class="userinfo-desc" selectable="false" space="false" decode="false">请点击按钮开始和你的客户经理互动</text>
+    </view>
+    <image class="indexbg" src="/images/indexbg.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+  </view>
+  <view class="home-bottom" hover-class="none" hover-stop-propagation="false">
+    <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo" disabled="{{disableJoin}}" class="join-btn">开始互动</button>
+    <view class="yinsi">
+      <icon class="yinsi-icon" size="18" type="success" color="{{yinsiColor}}" bindtap="switchYinsi"></icon>
+      <text>我已经详细阅读</text>
+      <navigator url="/page/navigate/navigate?title=navigate" class="yinsinote">隐私保护指引</navigator> 
+    </view>
+  </view>
+</view>
+<!-- <web-view src="https://www.zhouhaotian.club/public"></web-view> -->

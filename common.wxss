@@ -1,0 +1,21 @@
+.agora-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #fff;
+  color: #000;
+}
+
+.h1 {
+  font-size: 32rpx;
+}
+
+.h2 {
+  font-size: 24rpx;
+}
+
+.flex-center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

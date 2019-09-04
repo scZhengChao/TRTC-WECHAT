@@ -1,0 +1,46 @@
+<!--components/agora-player/agora-player.wxml-->
+<view class="play-container" style="left:{{x}}px; top:{{y}}px; width: {{width}}px; height: {{height}}px;">
+  <live-player hidden="{{!camera && !isScreen}}" wx:if="{{url!==''}}" id="player-{{uid}}" src="{{url}}" 
+  mode="RTC" class="player" orientation="{{orientation}}" sound-mode="{{soundMode}}"
+  bindstatechange="playerStateChange" object-fit="{{isScreen?'contain':'fillCrop'}}" 
+  style="height:{{height}}px; position: absolute; width: 100%; top: 0; left: 0;" debug="{{debug}}">
+  <cover-view class="cover-fullscreen" wx:if="{{isFullscreen}}">
+    <cover-image class="cover-fullscreen-background" src="/images/shadow.png"></cover-image>
+    <cover-image class="cover-fullscreen-back" src="/images/left.png" bind:tap="exitfullscreen"></cover-image>
+  </cover-view>
+  </live-player>
+  <!-- <view wx-if="{{status !== 'ok'}}" class="sud flex-center-column">
+    <view class="userinfo-avatar-wrapper" hover-class="none" hover-stop-propagation="false">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="userinfo-block">
+      <text class="userinfo-nickname" selectable="false" space="false" decode="false">
+      平安客户经理AA
+      即将开始屏幕共享
+      请稍等…
+      </text>
+    </view>
+  </view> -->
+  <cover-view wx:if="{{isScreen && !isFullscreen}}" class="icon-fullscreen" bind:tap="onfullscreen">
+    <cover-image class="" src="/images/fullscreen.png"></cover-image>
+  </cover-view>
+  <view wx:if="{{!camera && !isScreen}}" class="radio-container" hover-class="none" hover-stop-propagation="false">
+    <view wx:if="{{!showDouble}}" class="radio-users-single" hover-class="none" hover-stop-propagation="false">
+      <view class="agentinfo-avatar-wrapper" hover-class="none" hover-stop-propagation="false">
+        <image class="agentinfo-avatar" src="{{agentInfo.headImage}}" background-size="cover"></image>
+      </view>
+      <view class="agentinfo-block">
+        <text class="agentinfo-nickname" selectable="false" space="false" decode="false">平安客户经理{{agentInfo.nickName}}</text>
+      </view>
+    </view>
+    <view wx:else class="radio-users-double" hover-class="none" hover-stop-propagation="false">
+      <view class="agentinfo-avatar-wrapper-mini" hover-class="none" hover-stop-propagation="false">
+        <image class="agentinfo-avatar-mini" src="{{agentInfo.headImage}}" background-size="cover"></image>
+      </view>
+      <image class="radio-double-img" src="/images/radioDouble.png" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload=""></image>
+      <view class="userinfo-avatar-wrapper-mini" hover-class="none" hover-stop-propagation="false">
+        <image class="userinfo-avatar-mini" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      </view>
+    </view>
+  </view>
+</view>
